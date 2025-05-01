@@ -1,50 +1,5 @@
 import { INodeProperties } from 'n8n-workflow';
 
-// 공통 파라미터 정의
-export const xcodeBuildOperations: INodeProperties[] = [
-	{
-		displayName: 'Project Path',
-		name: 'projectPath',
-		type: 'string',
-		default: '',
-		placeholder: '/Users/username/Projects/MyApp',
-		description: 'Path to the Xcode project or workspace directory',
-		required: true,
-	},
-	{
-		displayName: 'Scheme',
-		name: 'scheme',
-		type: 'string',
-		default: '',
-		description: 'Build scheme to use',
-		required: true,
-	},
-	{
-		displayName: 'Configuration',
-		name: 'configuration',
-		type: 'options',
-		options: [
-			{
-				name: 'Debug',
-				value: 'Debug',
-			},
-			{
-				name: 'Release',
-				value: 'Release',
-			},
-		],
-		default: 'Debug',
-		description: 'Build configuration',
-	},
-	{
-		displayName: 'Destination',
-		name: 'destination',
-		type: 'string',
-		default: 'platform=iOS Simulator,name=iPhone 15',
-		description: 'Target destination for build (e.g., "platform=iOS Simulator,name=iPhone 15")',
-	},
-];
-
 // 작업별 특화 파라미터 정의
 const buildOperation: INodeProperties[] = [
 	{
@@ -127,3 +82,6 @@ export const xcodeBuildFields: INodeProperties[] = [
 	...archiveOperation,
 	...testOperation,
 ];
+
+// 공통 파라미터는 메인 노드 파일에서 직접 정의
+export const xcodeBuildOperations: INodeProperties[] = [];
